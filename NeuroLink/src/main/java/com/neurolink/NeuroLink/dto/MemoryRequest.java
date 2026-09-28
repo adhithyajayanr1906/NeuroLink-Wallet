@@ -24,4 +24,8 @@ public class MemoryRequest {
     private String mood;
 
     private String tags;
+
+    private String mediaUrl;
+
+    private String mediaType;
 }

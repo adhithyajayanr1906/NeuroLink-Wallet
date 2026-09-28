@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Memory | NeuroLink Vault</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link
+            rel="stylesheet"
+            href="css/style.css"
+    >
+
+    <link
+            rel="stylesheet"
+            href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- ==============================
+     NAVBAR
+=============================== -->
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a
+                href="dashboard.html"
+                class="logo"
+        >
+
+            <img
+                    src="assets/neurolink-logo.png"
+                    alt="NeuroLink Vault Logo"
+            >
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="search.html">
+                Search
+            </a>
+
+            <button
+                    id="logoutButton"
+                    class="nav-button"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     CREATE MEMORY CONTAINER
+=============================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- Section Header -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="eyebrow">
+                CREATE VAULT ENTRY
+            </p>
+
+            <h1>
+                Capture a <span>Memory</span>
+            </h1>
+
+            <p>
+                Preserve your experiences with rich text, photos, and videos.
+            </p>
+
+        </div>
+
+
+        <a
+                href="memories.html"
+                class="secondary-button"
+        >
+            ← Back to Memories
+        </a>
+
+    </section>
+
+
+
+    <!-- Form Container -->
+
+    <div class="form-card">
+
+        <form id="addMemoryForm">
+
+
+            <!-- Title & Date -->
+
+            <div class="form-row">
+
+                <div class="form-group flex-2">
+
+                    <label for="title">
+                        Memory Title <span class="required">*</span>
+                    </label>
+
+                    <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="e.g. Sunset at Malibu Beach"
+                            required
+                    >
+
+                </div>
+
+
+                <div class="form-group flex-1">
+
+                    <label for="memoryDate">
+                        Date <span class="required">*</span>
+                    </label>
+
+                    <input
+                            type="date"
+                            id="memoryDate"
+                            name="memoryDate"
+                            required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Category & Mood -->
+
+            <div class="form-row">
+
+                <div class="form-group flex-1">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" name="category">
+                        <option value="Personal">Personal</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Special Event">Special Event</option>
+                        <option value="Family">Family</option>
+                        <option value="Work">Work</option>
+                        <option value="Creative">Creative</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group flex-1">
+
+                    <label>
+                        Mood
+                    </label>
+
+                    <input type="hidden" id="mood" name="mood" value="Happy">
+
+                    <div class="mood-picker" id="moodPicker">
+                        <button type="button" class="mood-chip active" data-mood="Happy">🌟 Happy</button>
+                        <button type="button" class="mood-chip" data-mood="Peaceful">🌿 Peaceful</button>
+                        <button type="button" class="mood-chip" data-mood="Excited">⚡ Excited</button>
+                        <button type="button" class="mood-chip" data-mood="Grateful">💖 Grateful</button>
+                        <button type="button" class="mood-chip" data-mood="Reflective">🌙 Reflective</button>
+                        <button type="button" class="mood-chip" data-mood="Nostalgic">🍂 Nostalgic</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Media Upload (Photo & Video) -->
+
+            <div class="form-group">
+
+                <label>
+                    Photo or Video Attachment
+                </label>
+
+                <div class="media-upload-container">
+
+                    <div class="media-dropzone" id="dropzone">
+
+                        <div class="dropzone-icon">
+                            📷 🎥
+                        </div>
+
+                        <p class="dropzone-title">
+                            Upload a Photo or Video
+                        </p>
+
+                        <p class="dropzone-subtitle">
+                            Drag and drop your file here, or click to browse (Images, MP4, WebM, MOV)
+                        </p>
+
+                        <input
+                                type="file"
+                                id="mediaFile"
+                                accept="image/*,video/*"
+                                style="display: none;"
+                        >
+
+                        <button type="button" class="secondary-button" id="browseButton">
+                            Choose Media File
+                        </button>
+
+                    </div>
+
+
+                    <div class="media-url-divider">
+                        <span>OR PASTE MEDIA URL</span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input
+                                type="url"
+                                id="mediaUrlInput"
+                                placeholder="https://images.unsplash.com/... or https://...video.mp4"
+                        >
+                    </div>
+
+
+                    <!-- Live Preview Box -->
+
+                    <div class="media-preview-box" id="mediaPreviewBox" style="display: none;">
+
+                        <div class="preview-header">
+                            <span id="previewLabel">Media Preview</span>
+                            <button type="button" id="removeMediaBtn" class="remove-media-btn">✕ Remove Media</button>
+                        </div>
+
+                        <div class="preview-content" id="previewContent">
+                            <!-- Image or Video tag dynamically inserted -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Location & People -->
+
+            <div class="form-row">
+
+                <div class="form-group flex-1">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="e.g. Malibu, California"
+                    >
+
+                </div>
+
+
+                <div class="form-group flex-1">
+
+                    <label for="people">
+                        People Involved
+                    </label>
+
+                    <input
+                            type="text"
+                            id="people"
+                            name="people"
+                            placeholder="e.g. Sarah, Alex, John"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Tags -->
+
+            <div class="form-group">
+
+                <label for="tags">
+                    Tags (Comma Separated)
+                </label>
+
+                <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="e.g. beach, summer, vacation, sunset"
+                >
+
+            </div>
+
+
+
+            <!-- Description -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Memory Description / Story
+                </label>
+
+                <textarea
+                        id="description"
+                        name="description"
+                        rows="5"
+                        placeholder="Write down the details, emotions, and highlight moments of this memory..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- Form Actions -->
+
+            <div class="form-actions">
+
+                <a href="memories.html" class="secondary-button">
+                    Cancel
+                </a>
+
+                <button type="submit" class="primary-button" id="submitBtn">
+                    ✨ Save Memory
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- JavaScript -->
+
+<script src="js/api.js"></script>
+
+<script src="js/add-memory.js"></script>
+
+
+</body>
+
+</html>

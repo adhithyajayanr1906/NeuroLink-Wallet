@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | NeuroLink Vault</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link
+            rel="stylesheet"
+            href="css/style.css"
+    >
+
+    <link
+            rel="stylesheet"
+            href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- ==============================
+     NAVBAR
+=============================== -->
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a
+                href="dashboard.html"
+                class="logo"
+        >
+
+            <img
+                    src="assets/neurolink-logo.png"
+                    alt="NeuroLink Vault Logo"
+            >
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="search.html">
+                Search
+            </a>
+
+            <button
+                    id="logoutButton"
+                    class="nav-button"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     DASHBOARD
+=============================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- Welcome Section -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="eyebrow">
+                YOUR MEMORY VAULT
+            </p>
+
+            <h1>
+                Welcome back,
+                <span id="userName">
+                        User
+                    </span>.
+            </h1>
+
+            <p>
+                Your memories, experiences and
+                stories — all in one place.
+            </p>
+
+        </div>
+
+
+        <a
+                href="add-memory.html"
+                class="primary-button"
+        >
+            + Add Memory
+        </a>
+
+    </section>
+
+
+
+    <!-- ==============================
+         STATISTICS
+    =============================== -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <p>
+                    Total Memories
+                </p>
+
+                <h2 id="totalMemories">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📅
+            </div>
+
+            <div>
+
+                <p>
+                    Latest Memory
+                </p>
+
+                <h2 id="latestMemory">
+                    —
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✨
+            </div>
+
+            <div>
+
+                <p>
+                    Favorite Mood
+                </p>
+
+                <h2 id="favoriteMood">
+                    —
+                </h2>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==============================
+         RECENT MEMORIES
+    =============================== -->
+
+    <section class="recent-section">
+
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="eyebrow">
+                    RECENTLY CAPTURED
+                </p>
+
+                <h2>
+                    Your memories
+                </h2>
+
+            </div>
+
+
+            <a
+                    href="memories.html"
+                    class="view-all-link"
+            >
+                View all →
+            </a>
+
+        </div>
+
+
+
+        <!-- Memories will be inserted here -->
+
+        <div
+                id="recentMemories"
+                class="memory-grid"
+        >
+
+            <div class="empty-memory">
+
+                <div class="empty-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Your vault is waiting.
+                </h3>
+
+                <p>
+                    Create your first memory
+                    and start building your story.
+                </p>
+
+                <a
+                        href="add-memory.html"
+                        class="primary-button"
+                >
+                    Create First Memory
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+=============================== -->
+
+<script src="js/api.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

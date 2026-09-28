@@ -37,6 +37,11 @@ public class Memory {
 
     private String tags;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String mediaUrl;
+
+    private String mediaType;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

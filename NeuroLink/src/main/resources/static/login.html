@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sign In | NeuroLink Vault</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link
+            rel="stylesheet"
+            href="css/style.css"
+    >
+
+</head>
+
+
+<body class="auth-page">
+
+
+<!-- ==============================
+     NAVBAR
+=============================== -->
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a
+                href="index.html"
+                class="logo"
+        >
+
+            <img
+                    src="assets/neurolink-logo.png"
+                    alt="NeuroLink Vault Logo"
+            >
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="register.html">
+                New to NeuroLink?
+            </a>
+
+            <a
+                    href="register.html"
+                    class="nav-button"
+            >
+                Create Account
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     LOGIN
+=============================== -->
+
+<main class="auth-container">
+
+    <section class="auth-card">
+
+
+        <!-- Heading -->
+
+        <div class="auth-header">
+
+            <p class="eyebrow">
+                WELCOME BACK
+            </p>
+
+            <h1>
+                Enter your vault.
+            </h1>
+
+            <p>
+                Sign in to revisit your memories.
+            </p>
+
+        </div>
+
+
+
+        <!-- Login Form -->
+
+        <form id="loginForm">
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                >
+
+            </div>
+
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                >
+
+            </div>
+
+
+
+            <!-- Message -->
+
+            <div
+                    id="loginMessage"
+                    class="form-message"
+            ></div>
+
+
+
+            <!-- Login Button -->
+
+            <button
+                    type="submit"
+                    class="auth-button"
+            >
+                Sign In
+            </button>
+
+
+        </form>
+
+
+
+        <!-- Register Link -->
+
+        <div class="auth-footer">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create your vault
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+=============================== -->
+
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+
+</body>
+
+</html>

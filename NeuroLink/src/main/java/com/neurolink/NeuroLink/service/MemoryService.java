@@ -38,6 +38,8 @@ public class MemoryService {
                 .people(request.getPeople())
                 .mood(request.getMood())
                 .tags(request.getTags())
+                .mediaUrl(request.getMediaUrl())
+                .mediaType(request.getMediaType())
                 .user(user)
                 .build();
 
@@ -95,6 +97,8 @@ public class MemoryService {
         memory.setPeople(request.getPeople());
         memory.setMood(request.getMood());
         memory.setTags(request.getTags());
+        memory.setMediaUrl(request.getMediaUrl());
+        memory.setMediaType(request.getMediaType());
 
         Memory updatedMemory = memoryRepository.save(memory);
 
@@ -123,8 +127,12 @@ public class MemoryService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return getUserMemories(userId);
+        }
+
         return memoryRepository
-                .findByUserAndTitleContainingIgnoreCase(user, keyword)
+                .searchUserMemories(user, keyword.trim())
                 .stream()
                 .map(this::convertToResponse)
                 .toList();
@@ -142,6 +150,8 @@ public class MemoryService {
                 .people(memory.getPeople())
                 .mood(memory.getMood())
                 .tags(memory.getTags())
+                .mediaUrl(memory.getMediaUrl())
+                .mediaType(memory.getMediaType())
                 .createdAt(memory.getCreatedAt())
                 .updatedAt(memory.getUpdatedAt())
                 .build();

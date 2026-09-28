@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Search Memories | NeuroLink Vault</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link
+            rel="stylesheet"
+            href="css/style.css"
+    >
+
+    <link
+            rel="stylesheet"
+            href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- ==============================
+     NAVBAR
+=============================== -->
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a
+                href="dashboard.html"
+                class="logo"
+        >
+
+            <img
+                    src="assets/neurolink-logo.png"
+                    alt="NeuroLink Vault Logo"
+            >
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="search.html" class="active">
+                Search
+            </a>
+
+            <button
+                    id="logoutButton"
+                    class="nav-button"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     SEARCH VAULT MAIN
+=============================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- Section Header -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="eyebrow">
+                SEARCH VAULT
+            </p>
+
+            <h1>
+                Search <span>Memories</span>
+            </h1>
+
+            <p>
+                Find any moment, photo, video, location, or tag in your vault instantly.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Search Input Hero Box -->
+
+    <section class="search-box-section">
+
+        <div class="search-input-wrapper">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by keywords, tags, people, location, mood, or description..."
+                    autocomplete="off"
+            >
+
+            <button type="button" id="clearSearchBtn" class="clear-search-btn" style="display: none;">✕</button>
+
+        </div>
+
+
+        <!-- Filter Pills -->
+
+        <div class="filter-pills-row">
+
+            <span class="filter-label">Quick Filters:</span>
+
+            <button class="filter-chip active" data-filter="ALL">All</button>
+            <button class="filter-chip" data-filter="MEDIA_ONLY">📷 🎥 Media Only</button>
+            <button class="filter-chip" data-filter="Happy">🌟 Happy</button>
+            <button class="filter-chip" data-filter="Nostalgic">🍂 Nostalgic</button>
+            <button class="filter-chip" data-filter="Travel">✈️ Travel</button>
+            <button class="filter-chip" data-filter="Personal">👤 Personal</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Search Results Section -->
+
+    <section class="recent-section">
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="eyebrow" id="resultsCountEyebrow">
+                    VAULT MATCHES
+                </p>
+
+                <h2 id="resultsHeading">
+                    Search Results
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="searchResultsGrid" class="memory-grid">
+
+            <div class="empty-memory">
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Start typing to search
+                </h3>
+
+                <p>
+                    Enter a keyword or click a quick filter to find specific memories.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==============================
+     MEMORY DETAIL MODAL
+=============================== -->
+
+<div class="modal-backdrop" id="memoryModal" style="display: none;">
+
+    <div class="modal-card">
+
+        <button class="modal-close" id="modalCloseBtn">✕</button>
+
+        <div id="modalViewMode">
+
+            <div class="modal-media-container" id="modalMediaContainer" style="display: none;">
+                <!-- Image or Video -->
+            </div>
+
+            <div class="modal-header-info">
+
+                <div class="modal-tags-row">
+
+                    <span class="memory-category" id="modalCategory">Category</span>
+
+                    <span class="mood-badge" id="modalMood">🌟 Mood</span>
+
+                </div>
+
+                <h2 id="modalTitle">Memory Title</h2>
+
+                <div class="modal-meta-row">
+
+                    <span id="modalDate">📅 Date</span>
+
+                    <span id="modalLocation">📍 Location</span>
+
+                    <span id="modalPeople">👥 People</span>
+
+                </div>
+
+            </div>
+
+            <div class="modal-body-content">
+
+                <p id="modalDescription">Description text goes here...</p>
+
+                <div class="modal-tags-container" id="modalTagsContainer">
+                    <!-- Tag chips -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- JavaScript -->
+
+<script src="js/api.js"></script>
+
+<script src="js/search.js"></script>
+
+
+</body>
+
+</html>

@@ -28,6 +28,10 @@ public class MemoryResponse {
 
     private String tags;
 
+    private String mediaUrl;
+
+    private String mediaType;
+
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
